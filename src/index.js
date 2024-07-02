@@ -82,7 +82,7 @@ const current = () => {
         });
     });
 
-    headerLinksOurStory.dispatchEvent(event);
+    headerLinksMenu.dispatchEvent(event);
 }
 
 current();

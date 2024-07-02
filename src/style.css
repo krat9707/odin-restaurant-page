@@ -209,6 +209,12 @@ button {
 
     display: grid;
     grid-template-rows: 2fr 4fr 2fr;
+
+    transition: transform 0.3s;
+}
+
+.menu-card:hover {
+    transform: scale(1.05);   
 }
 
 .menu-card-title {
