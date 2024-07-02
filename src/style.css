@@ -217,6 +217,7 @@ button {
     transform: scale(1.05);   
 }
 
+
 .menu-card-title {
     grid-row : 1 / 2;
     font-size: clamp(15px, 1.8rem, 35px);
