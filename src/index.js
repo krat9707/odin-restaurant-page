@@ -1,8 +1,13 @@
-import homePage  from './home.js';
 import './normalize.css';
 import './style.css';
 import headerLogo from './assests/images/logo.png';
-import { menuPage } from './menu.js';
+
+const event = new MouseEvent('click', {
+    bubbles: true,  
+    cancelable: true,
+    view: window  
+});
+
 
 const current = () => {
 
@@ -19,15 +24,15 @@ const current = () => {
         headerLinks.classList.add('header-links');
 
             const headerLinksHome = document.createElement('button');
-            headerLinksHome.classList.add('home');
+            headerLinksHome.classList.add('home', 'button', 'active');
             headerLinksHome.innerText = `Home`;
 
             const headerLinksMenu = document.createElement('button');
-            headerLinksMenu.classList.add('menu');
+            headerLinksMenu.classList.add('menu', 'button');
             headerLinksMenu.innerText = `Menu`;
 
             const headerLinksOurStory = document.createElement('button');
-            headerLinksOurStory.classList.add('our-story');
+            headerLinksOurStory.classList.add('our-story', 'button');
             headerLinksOurStory.innerText = `Our Story`;
         
         headerLinks.appendChild(headerLinksHome);
@@ -38,21 +43,48 @@ const current = () => {
     header.appendChild(headerLinks);
 
     document.querySelector('#header').appendChild(header); 
+    
+    headerLinksHome.addEventListener('click', (e) => {
+        const active = document.querySelector('.active');
+        active.classList.remove('active');  
 
-    headerLinksHome.addEventListener('click', () => {
-        subPagesBody.innerHTML = '';    
-        homePage();
+        e.target.classList.add('active');
+
+        import('./home.js').then(home => {
+            subPagesBody.innerHTML = '';
+            home.default();
+        });
+
     });
 
-    headerLinksMenu.addEventListener('click', () => {
-        subPagesBody.innerHTML = '';
-        menuPage();
+    headerLinksMenu.addEventListener('click', (e) => {
+        const active = document.querySelector('.active');
+        active.classList.remove('active');  
+        
+        e.target.classList.add('active');
+
+        import('./menu.js').then(menu => {
+            subPagesBody.innerHTML = '';
+            menu.menuPage();
+        });
+
     });
 
-    // headerLinksOurStory.addEventListener('click', () => {
-    //     ourStoryPage();
-    // });
+    headerLinksOurStory.addEventListener('click', (e) => {
+        const active = document.querySelector('.active');
+        active.classList.remove('active');  
+        
+        e.target.classList.add('active');
+
+        import('./our-story.js').then(ourStory => {
+            subPagesBody.innerHTML = '';
+            ourStory.default();
+        });
+    });
+
+    headerLinksOurStory.dispatchEvent(event);
 }
 
 current();
-homePage();
+
+

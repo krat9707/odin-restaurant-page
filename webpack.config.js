@@ -6,6 +6,7 @@ module.exports = {
     entry: {
         index: './src/index.js',
         home: './src/home.js',
+        menu: './src/menu.js',
     },
     output: {
         filename: '[name].main.js',
@@ -35,5 +36,10 @@ module.exports = {
             },
         ],
     },
+    optimization: {
+        splitChunks: {
+          chunks: 'all',
+        },
+      },   
     devtool: 'inline-source-map',
 };

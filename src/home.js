@@ -24,7 +24,8 @@ export default () => {
                 bodyIntroSecondaryText.innerText = `Experience the pinnacle of Japanese cuisine at The UMI. Immerse yourself in authentic flavors, unparalleled service, and an atmosphere of luxurious serenity.`;
 
                 const bodyIntroReserveTable = document.createElement('button');
-                bodyIntroReserveTable.innerText = `Reserve Table`;
+                bodyIntroReserveTable.classList.add('button');
+                bodyIntroReserveTable.innerText = `Reserve`;
             
             bodyIntroText.appendChild(bodyIntroMainText);
             bodyIntroText.appendChild(bodyIntroSecondaryText);
@@ -139,7 +140,12 @@ export default () => {
             actionBoxText.appendChild(actionBoxMainText);
             actionBoxText.appendChild(actionBoxSecondaryText);
 
+            const actionBoxButton = document.createElement('button');
+            actionBoxButton.classList.add('button');    
+            actionBoxButton.innerText = `Subscribe`;
+
         bodyAction.appendChild(actionBoxText);
+        bodyAction.appendChild(actionBoxButton);    
 
     mainContent.appendChild(bodyIntro);
     mainContent.appendChild(bodyContent);

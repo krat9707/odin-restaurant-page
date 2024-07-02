@@ -82,18 +82,23 @@ function displayCards(menu, menuContainer) {
         cardTitle.innerHTML = `${dish.name} (${dish.japaneseName})`;
         card.appendChild(cardTitle);
 
-        let cardPrice = document.createElement('div');
-        cardPrice.classList.add('menu-card-price');
-        cardPrice.innerHTML = '<b>Price: </b>' + dish.price;
-        card.appendChild(cardPrice);
+        let cardDetails = document.createElement('div');
+        cardDetails.classList.add('menu-card-details');
 
-        let cardDescription = document.createElement('div');
-        cardDescription.classList.add('menu-card-description');
-        cardDescription.innerHTML = '<b>Description: </b>' + dish.description;
-        card.appendChild(cardDescription);
-    
+            let cardPrice = document.createElement('div');
+            cardPrice.classList.add('menu-card-price');
+            cardPrice.innerHTML = 'Price: ' + dish.price;
+            cardDetails.appendChild(cardPrice);
+
+            let cardDescription = document.createElement('div');
+            cardDescription.classList.add('menu-card-description');
+            cardDescription.innerHTML = dish.description;
+            cardDetails.appendChild(cardDescription);
+      
+        card.appendChild(cardDetails);
+
         let cardButton = document.createElement('button');
-        cardButton.classList.add('menu-card-button');
+        cardButton.classList.add('menu-card-button', 'button');
         cardButton.innerText = 'Order Now';
         card.appendChild(cardButton);
 
